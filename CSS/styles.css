@@ -19,7 +19,7 @@ body {
             transform-origin: left left;
             height:15%;
             width:10%;
-            margin: 100% 0% 0% 2%;
+            margin: 48% 0% 0% 2%;
         }
 
         #table {
@@ -30,7 +30,7 @@ body {
 
         #ball {
             transform-origin: left left;
-            margin: 58% 0% 0% 16%; 
+            margin: 49% 0% 0% 12%; 
             /* height:15px;
             width: 15px; */
         }

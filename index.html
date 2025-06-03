@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projectile Motion Simulation</title>
+    <link rel="stylesheet" href="css/styles.css"> 
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- p5.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"></script>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Navigation Bar -->
+    <nav class="navbar p-4 text-white">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Projectile Motion Lab</h1>
+            <div class="space-x-4">
+                <a href="#" class="hover:text-gray-300">Home</a>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto p-4 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+        <!-- Simulation Frame -->
+        <div class="md:w-2/3">
+            <div id="simulation-frame" class="relative">
+                <img id="floor" src="images/floor.jpg" alt="Floor" class="bottom-0 w-full h-20">
+                <img id="ball" src="images/ball.svg" alt="Ball" class="hidden w-3 h-3"> 
+                <img id="table" src="images/table.png" alt="Table" class="w-24 h-16" style="bottom: 20px; left: 20px;">
+                <img id="cannon" src="images/cannon.png" alt="Cannon" class="w-16 h-12" style="bottom: 36px; left: 20px;">
+               
+            </div><br>
+            <!-- Canvas for Trajectory -->
+            <div class="checkbox-container">
+                <label class="flex items-center space-x-2">
+                   
+            <input type="checkbox" id="graphs-toggle" checked>
+                    <span class="font-semibold">Graph</span>
+                </label>
+                <div id="graphs-content" class="mt-2">
+            
+            <div id="graph-canvas" class="mt-4">
+                
+                
+            </div>
+                </div>
+              </div>   
+          
+   
+        </div>
+
+        <!-- Checkboxes -->
+        <div class="md:w-1/3 space-y-4">
+            <!-- Variables Checkbox -->
+            <div class="checkbox-container">
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" id="variables-toggle" checked>
+                    <span class="font-semibold">Variables</span>
+                </label>
+                <div id="variables-content" class="mt-2">
+                    <div>
+                        <label>Initial Velocity (m/s): <span id="velocity-value">10</span></label>
+                        <input type="range" id="velocity" class="slider" min="10" max="22" step="1" value="10">
+                    </div>
+                    <div>
+                        <label>Angle of Projection (°): <span id="angle-value">20</span></label>
+                        <input type="range" id="angle" class="slider" min="20" max="90" step="5" value="20">
+                    </div>
+                    <div>
+                        <label>Table Height (m): <span id="height-value">0</span></label>
+                        <input type="range" id="height" class="slider" min="0" max="5" step="0.1" value="0">
+                    </div>
+                    <div class="flex space-x-2 mt-4">
+                        <button id="start-btn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Start</button>
+                        <button id="reset-btn" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Checkbox -->
+            <div class="checkbox-container">
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" id="results-toggle">
+                    <span class="font-semibold">Results</span>
+                </label>
+                <div id="results-content" class="mt-2 hidden">
+                    <p>Time Taken: <span id="time-taken">0</span> s</p>
+                    <p>Horizontal Distance: <span id="distance">0</span> m</p>
+                    <p>Maximum Height: <span id="max-height">0</span> m</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script> 
+</body>
+</html>
